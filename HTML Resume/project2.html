@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Management Simulation - Project 2</title>
+</head>
+<body>
+
+    <header>
+        <h1>Edsel Arce</h1>
+        <p>Aspiring Cybersecurity Professional</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="project1.html">Project 1</a></li>
+                <li><a href="project2.html">Project 2</a></li>
+                <li><a href="mailto:email@knights.ucf.edu">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        <section id="project-details">
+            <h2>Memory Management Unit (MMU) Simulation</h2>
+            
+            <img src="project2.png" alt="C program output showing logical address 999 being resolved to Page 3" width="600">
+
+            <h3>Project Description</h3>
+            <p>
+                This project focuses on the fundamental operating system concept of <strong>Paging</strong>. Written in C, the program simulates a Memory Management Unit (MMU) that translates Logical Addresses into Physical Addresses.
+            </p>
+            <p>
+                The screenshot above demonstrates the program's error handling capabilities. When the user inputs a logical address (999), the system calculates the specific Page (3) and Offset (231). As shown in the output, it correctly identifies that "Page 3 not in memory," simulating a page fault or invalid access.
+            </p>
+
+            <h3>Key Features & Skills</h3>
+            <ul>
+                <li><strong>System Programming:</strong> Implemented low-level memory logic using C.</li>
+                <li><strong>Bitwise Operations:</strong> Used arithmetic logic to separate an address into Page numbers and Offsets.</li>
+                <li><strong>Error Handling:</strong> Validates the presence of a page in the physical frame table before attempting access.</li>
+            </ul>
+
+            <h3>Code Snippet</h3>
+            <p>Below is the logic used to calculate the specific page and offset from the user's input:</p>
+
+<pre><code>
+void resolve(int addr, Entry pt[]) {
+    if (addr >= LOG_SIZE) {
+        printf("Out of range.\n");
+        return;
+    }
+
+    // Extracting page number and offset
+    int page = addr / PSIZE;
+    int offset = addr % PSIZE;
+    
+    printf("Page: %d, Offset: %d\n", page, offset);
+
+    // Check if page is valid in memory
+    if (pt[page].valid) {
+        int phys = pt[page].frame * PSIZE + offset;
+        printf("Physical Address: %d\n", phys);
+    } else {
+        printf("Page %d not in memory.\n", page);
+    }
+}
+</code></pre>
+
+        </section>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2026 Edsel Arce. Built for UCF Web Design.</p>
+    </footer>
+
+</body>
+</html>
