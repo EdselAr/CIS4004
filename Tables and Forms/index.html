@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza Ordering Form</title>
 </head>
 <body>
@@ -13,18 +11,18 @@
         
         <h2>Contact Information</h2>
         
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
+        <label>Name:</label><br>
+        <input type="text" name="name"><br><br>
 
-        <label for="phone">Phone:</label><br>
-        <input type="tel" id="phone" name="phone" required><br><br>
+        <label>Phone:</label><br>
+        <input type="text" name="phone"><br><br>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+        <label>Email:</label><br>
+        <input type="text" name="email"><br><br>
 
         <h3>Select Pizza Size</h3>
-        <label for="size">Pizza Size:</label>
-        <select id="size" name="size" required>
+        <label>Pizza Size:</label>
+        <select name="size">
             <option value="">--Select Size--</option>
             <option value="medium">Medium</option>
             <option value="large">Large</option>
@@ -33,36 +31,36 @@
         <br>
 
         <h3>Select Sauce</h3>
-        <input type="radio" id="marinara" name="sauce" value="marinara" required>
-        <label for="marinara">Marinara</label><br>
+        <input type="radio" name="sauce" value="marinara">
+        <label>Marinara</label><br>
         
-        <input type="radio" id="ranch" name="sauce" value="ranch">
-        <label for="ranch">Ranch</label><br>
+        <input type="radio" name="sauce" value="ranch">
+        <label>Ranch</label><br>
         
-        <input type="radio" id="nosauce" name="sauce" value="nosauce">
-        <label for="nosauce">No Sauce</label><br>
+        <input type="radio" name="sauce" value="nosauce">
+        <label>No Sauce</label><br>
 
         <h3>Select Toppings</h3>
-        <input type="checkbox" id="pepperoni" name="toppings" value="pepperoni">
-        <label for="pepperoni">Pepperoni</label>
+        <input type="checkbox" name="toppings" value="pepperoni">
+        <label>Pepperoni</label>
         
-        <input type="checkbox" id="sausage" name="toppings" value="sausage">
-        <label for="sausage">Sausage</label><br>
+        <input type="checkbox" name="toppings" value="sausage">
+        <label>Sausage</label><br>
 
-        <input type="checkbox" id="mushroom" name="toppings" value="mushroom">
-        <label for="mushroom">Mushroom</label>
+        <input type="checkbox" name="toppings" value="mushroom">
+        <label>Mushroom</label>
 
-        <input type="checkbox" id="pineapple" name="toppings" value="pineapple">
-        <label for="pineapple">Pineapple</label><br>
+        <input type="checkbox" name="toppings" value="pineapple">
+        <label>Pineapple</label><br>
 
-        <input type="checkbox" id="peppers" name="toppings" value="peppers">
-        <label for="peppers">Peppers</label>
+        <input type="checkbox" name="toppings" value="peppers">
+        <label>Peppers</label>
 
-        <input type="checkbox" id="onions" name="toppings" value="onions">
-        <label for="onions">Onions</label><br>
+        <input type="checkbox" name="toppings" value="onions">
+        <label>Onions</label><br>
 
         <h3>Additional Instructions</h3>
-        <textarea id="instructions" name="instructions" rows="4" cols="50" placeholder="Add instructions"></textarea>
+        <textarea name="instructions" rows="4" cols="50"></textarea>
         <br><br>
 
         <input type="submit" value="Submit Assignment">
@@ -72,42 +70,42 @@
 
     <h3>List of My Favorite Games</h3>
     
-    <table border="1" cellpadding="5" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Developer</th>
-                <th>Title</th>
-                <th>Year</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Mojang</td>
-                <td>Minecraft</td>
-                <td>2011</td>
-            </tr>
-            <tr>
-                <td rowspan="3">FromSoftware</td>
-                <td>Dark Souls 1</td>
-                <td>2011</td>
-            </tr>
-            <tr>
-                <td>Sekiro Shadows Die Twice</td>
-                <td>2019</td>
-            </tr>
-            <tr>
-                <td>Bloodborne</td>
-                <td>2015</td>
-            </tr>
-            <tr>
-                <td>Nintendo</td>
-                <td>Super Mario Galaxy 2</td>
-                <td>2010</td>
-            </tr>
-            <tr>
-                <td colspan="3">Count: 5</td>
-            </tr>
-        </tbody>
+    <table border="1">
+        <tr>
+            <th>Developer</th>
+            <th>Title</th>
+            <th>Year</th>
+        </tr>
+        <tr>
+            <td>Mojang</td>
+            <td>Minecraft</td>
+            <td>2011</td>
+        </tr>
+        <tr>
+            <td>FromSoftware</td>
+            <td>Dark Souls 1</td>
+            <td>2011</td>
+        </tr>
+        <tr>
+            <td>FromSoftware</td>
+            <td>Sekiro Shadows Die Twice</td>
+            <td>2019</td>
+        </tr>
+        <tr>
+            <td>FromSoftware</td>
+            <td>Bloodborne</td>
+            <td>2015</td>
+        </tr>
+        <tr>
+            <td>Nintendo</td>
+            <td>Super Mario Galaxy 2</td>
+            <td>2010</td>
+        </tr>
+        <tr>
+            <td>Total Count</td>
+            <td>5</td>
+            <td></td>
+        </tr>
     </table>
 
 </body>
