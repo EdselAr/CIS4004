@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Personnel Management - Project 1</title>
 </head>
 <body>
@@ -42,21 +40,6 @@
                 <li><strong>Core Concepts:</strong> Inheritance, Abstract Classes, Polymorphism, and Encapsulation.</li>
                 <li><strong>Functionality:</strong> As shown in the image, the system handles invalid inputs (e.g., "No student matched") and retrieves faculty details like Department and Rank.</li>
             </ul>
-
-            <h3>Code Snippet</h3>
-            <p>Below is a snippet demonstrating the <code>Student</code> class overriding the abstract <code>print()</code> method to generate a custom tuition invoice:</p>
-
-<pre><code>
-@Override
-public void print() {
-    double totalFee = creditHours * 236.45 + 52;
-    double discount = gpa >= 3.85 ? totalFee * 0.25 : 0;
-    
-    System.out.printf("\n%s\t%s\nCredit Hours: %d ($236.45/credit hour)\nFees: $52\nTotal payment: $%.2f\n",
-        name, id, creditHours, totalFee - discount);
-}
-</code></pre>
-
         </section>
     </main>
 
