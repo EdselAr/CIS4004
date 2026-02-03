@@ -1,23 +1,25 @@
-/* Body Background Color */
+/* Body Styling - Now constrained to 75% width */
 body {
     background-color: #ADD8E6; /* LightBlue */
     font-family: Arial, sans-serif;
+    width: 75%; /* This "squishes" the whole page to the left */
+    margin-left: 10px; /* Adds a tiny gap on the left edge so it's not glued to the screen */
 }
 
 /* Top Header Alignment */
 h1 {
     text-align: center;
-    font-size: 42px; /* Significantly larger to match the example title */
+    font-size: 42px; 
     font-weight: bold;
 }
 
 /* Header Sizes */
 h2 {
-    font-size: 32px; /* Increased from 24px to 32px */
+    font-size: 32px; 
     font-weight: bold;
 }
 h3 {
-    font-size: 26px; /* Increased from 20px to 26px */
+    font-size: 26px; 
     font-weight: bold;
 }
 
@@ -60,7 +62,7 @@ p a {
 /* Table Styling */
 table {
     border-collapse: collapse;
-    width: 80%;
+    width: 100%; /* Changed to 100% so it fills our new narrower body area */
     margin-top: 10px;
     background-color: white; 
 }
