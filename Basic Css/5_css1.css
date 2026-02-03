@@ -1,4 +1,4 @@
-/* Body Background Color - Changed to Light Blue to match target */
+/* Body Background Color */
 body {
     background-color: #ADD8E6; /* LightBlue */
     font-family: Arial, sans-serif;
@@ -18,23 +18,22 @@ h3 {
 }
 
 /* 2nd Paragraph styling */
-/* FIXED: Changed border from black to Green */
+/* FIXED: Increased width to 80% to reduce the large side offsets */
 #paragraph2 {
-    width: 60%;
-    margin: 20px auto;
+    width: 80%;            /* Wider box */
+    margin: 20px auto;     /* Centered */
     padding: 20px;
-    border: 5px solid green; /* Thick green border */
+    border: 5px solid green; 
     line-height: 2.0;
     background-color: white; 
 }
 
 /* 4th and 5th paragraphs Colors */
-/* FIXED: Changed to Dark Blue Background with White Text */
 .blue {
     background-color: #00008B; /* DarkBlue */
-    color: white;              /* White text */
-    padding: 15px;             /* Adds space inside the color block */
-    margin-bottom: 15px;       /* Keeps space between the blocks */
+    color: white;
+    padding: 15px;
+    margin-bottom: 15px;
 }
 
 /* List Items: Two digits */
@@ -43,16 +42,18 @@ ol {
 }
 
 /* Link Colors */
-/* List Item Links */
+/* FIXED: Added underline so they look like hyperlinks */
 ol li a {
-    color: #006400; /* Dark Green */
-    text-decoration: none;
+    color: #008000; /* Green */
+    text-decoration: underline; /* clearly visible link style */
     font-weight: bold;
 }
 
 /* W3Schools Link (inside a paragraph) */
+/* FIXED: Changed to a darker red/brick color */
 p a {
-    color: #FF4500; /* Red-Orange */
+    color: #8B0000; /* DarkRed */
+    font-weight: bold;
 }
 
 /* Table Styling */
@@ -60,12 +61,13 @@ table {
     border-collapse: collapse;
     width: 80%;
     margin-top: 10px;
-    background-color: white; /* Ensures table doesn't look transparent */
+    background-color: white; 
 }
 
-/* Table Header and Cells */
+/* Table Header */
+/* FIXED: Darkened the grey background */
 th {
-    background-color: #555555;
+    background-color: #333333; /* Darker Grey */
     color: white;
     border: 1px solid black;
     padding: 10px;
