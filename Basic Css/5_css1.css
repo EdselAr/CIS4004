@@ -1,7 +1,7 @@
-/* Body Background Color */
+/* Body Background Color - Changed to Light Blue to match target */
 body {
-    background-color: #e0e0e0; /* Matches the light grey background */
-    font-family: Arial, sans-serif; /* Standard sans-serif font */
+    background-color: #ADD8E6; /* LightBlue */
+    font-family: Arial, sans-serif;
 }
 
 /* Top Header Alignment */
@@ -18,52 +18,54 @@ h3 {
 }
 
 /* 2nd Paragraph styling */
-/* Requirements: width, margin, padding, border, and line-height */
+/* FIXED: Changed border from black to Green */
 #paragraph2 {
-    width: 60%;            /* Constrained width */
-    margin: 20px auto;     /* Centered horizontally */
-    padding: 20px;         /* Internal spacing */
-    border: 3px solid black; /* Visible thick border */
-    line-height: 2.0;      /* Large spacing between lines */
-    background-color: white; /* Distinction from body background */
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 5px solid green; /* Thick green border */
+    line-height: 2.0;
+    background-color: white; 
 }
 
 /* 4th and 5th paragraphs Colors */
+/* FIXED: Changed to Dark Blue Background with White Text */
 .blue {
-    color: blue;
+    background-color: #00008B; /* DarkBlue */
+    color: white;              /* White text */
+    padding: 15px;             /* Adds space inside the color block */
+    margin-bottom: 15px;       /* Keeps space between the blocks */
 }
 
 /* List Items: Two digits */
 ol {
-    list-style-type: decimal-leading-zero; /* Creates 01, 02, etc. */
+    list-style-type: decimal-leading-zero;
 }
 
 /* Link Colors */
-/* Requirement: Link to w3schools is different color than list item links */
-
 /* List Item Links */
 ol li a {
-    color: #006400; /* Dark Green (Example distinct color) */
+    color: #006400; /* Dark Green */
     text-decoration: none;
     font-weight: bold;
 }
 
 /* W3Schools Link (inside a paragraph) */
 p a {
-    color: #FF4500; /* Red-Orange (Distinct from the list links) */
+    color: #FF4500; /* Red-Orange */
 }
 
 /* Table Styling */
 table {
-    border-collapse: collapse; /* "borders are overlapping" */
-    width: 80%; /* Good standard width */
+    border-collapse: collapse;
+    width: 80%;
     margin-top: 10px;
+    background-color: white; /* Ensures table doesn't look transparent */
 }
 
-/* Table Header and Cells have different backgrounds */
-/* Table border applies to all cells */
+/* Table Header and Cells */
 th {
-    background-color: #555555; /* Darker background for header */
+    background-color: #555555;
     color: white;
     border: 1px solid black;
     padding: 10px;
@@ -71,7 +73,7 @@ th {
 }
 
 td {
-    background-color: #ffffff; /* Lighter background for cells */
+    background-color: #ffffff;
     border: 1px solid black;
     padding: 10px;
 }
