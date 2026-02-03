@@ -2,7 +2,6 @@
 body {
     background-color: #ADD8E6; /* LightBlue */
     font-family: Arial, sans-serif;
-    width: 75%; /* This "squishes" the whole page to the left */
     margin-left: 10px; /* Adds a tiny gap on the left edge so it's not glued to the screen */
 }
 
@@ -25,8 +24,8 @@ h3 {
 
 /* 2nd Paragraph styling */
 #paragraph2 {
-    width: 90%;            
-    margin: 20px 0 20px 40px; 
+    width: 60%;            
+    margin: 10px 0 10px 10px; 
     padding: 20px;
     border: 5px solid green; 
     line-height: 2.0;
@@ -48,7 +47,7 @@ ol {
 
 /* Link Colors */
 ol li a {
-    color: blue; 
+    color: DarkBlue; 
     text-decoration: underline;
     font-weight: bold;
 }
@@ -62,7 +61,7 @@ p a {
 /* Table Styling */
 table {
     border-collapse: collapse;
-    width: 100%; /* Changed to 100% so it fills our new narrower body area */
+    width: 40%; /* Changed to 100% so it fills our new narrower body area */
     margin-top: 10px;
     background-color: white; 
 }
