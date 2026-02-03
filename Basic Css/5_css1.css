@@ -7,14 +7,18 @@ body {
 /* Top Header Alignment */
 h1 {
     text-align: center;
+    font-size: 42px; /* Significantly larger to match the example title */
+    font-weight: bold;
 }
 
 /* Header Sizes */
 h2 {
-    font-size: 24px;
+    font-size: 32px; /* Increased from 24px to 32px */
+    font-weight: bold;
 }
 h3 {
-    font-size: 20px;
+    font-size: 26px; /* Increased from 20px to 26px */
+    font-weight: bold;
 }
 
 /* 2nd Paragraph styling */
@@ -62,13 +66,12 @@ table {
 }
 
 /* Table Header */
-/* FIXED: Changed background to Silver and text to Black to match the image */
 th {
-    background-color: #C0C0C0; /* Silver/Medium Grey */
-    color: black;              /* Black text */
+    background-color: #C0C0C0; /* Silver */
+    color: black;              
     border: 1px solid black;
     padding: 10px;
-    text-align: center;        /* Centered text usually looks better in headers */
+    text-align: center;      
 }
 
 td {
