@@ -18,11 +18,9 @@ h3 {
 }
 
 /* 2nd Paragraph styling */
-/* FIXED: Width increased to 90% to force text onto 3 lines */
-/* FIXED: Removed 'auto' margin to stop centering, added left margin */
 #paragraph2 {
     width: 90%;            
-    margin: 20px 0 20px 40px; /* Top, Right, Bottom, Left */
+    margin: 20px 0 20px 40px; 
     padding: 20px;
     border: 5px solid green; 
     line-height: 2.0;
@@ -43,7 +41,6 @@ ol {
 }
 
 /* Link Colors */
-/* FIXED: Changed color to Blue */
 ol li a {
     color: blue; 
     text-decoration: underline;
@@ -65,12 +62,13 @@ table {
 }
 
 /* Table Header */
+/* FIXED: Changed background to Silver and text to Black to match the image */
 th {
-    background-color: #333333; /* Darker Grey */
-    color: white;
+    background-color: #C0C0C0; /* Silver/Medium Grey */
+    color: black;              /* Black text */
     border: 1px solid black;
     padding: 10px;
-    text-align: left;
+    text-align: center;        /* Centered text usually looks better in headers */
 }
 
 td {
