@@ -18,10 +18,11 @@ h3 {
 }
 
 /* 2nd Paragraph styling */
-/* FIXED: Increased width to 80% to reduce the large side offsets */
+/* FIXED: Width increased to 90% to force text onto 3 lines */
+/* FIXED: Removed 'auto' margin to stop centering, added left margin */
 #paragraph2 {
-    width: 80%;            /* Wider box */
-    margin: 20px auto;     /* Centered */
+    width: 90%;            
+    margin: 20px 0 20px 40px; /* Top, Right, Bottom, Left */
     padding: 20px;
     border: 5px solid green; 
     line-height: 2.0;
@@ -42,15 +43,14 @@ ol {
 }
 
 /* Link Colors */
-/* FIXED: Added underline so they look like hyperlinks */
+/* FIXED: Changed color to Blue */
 ol li a {
-    color: #008000; /* Green */
-    text-decoration: underline; /* clearly visible link style */
+    color: blue; 
+    text-decoration: underline;
     font-weight: bold;
 }
 
 /* W3Schools Link (inside a paragraph) */
-/* FIXED: Changed to a darker red/brick color */
 p a {
     color: #8B0000; /* DarkRed */
     font-weight: bold;
@@ -65,7 +65,6 @@ table {
 }
 
 /* Table Header */
-/* FIXED: Darkened the grey background */
 th {
     background-color: #333333; /* Darker Grey */
     color: white;
