@@ -1,18 +1,15 @@
-/* Body Styling - Now constrained to 75% width */
 body {
-    background-color: #ADD8E6; /* LightBlue */
+    background-color: #ADD8E6;
     font-family: Arial, sans-serif;
-    margin-left: 10px; /* Adds a tiny gap on the left edge so it's not glued to the screen */
+    margin-left: 10px;
 }
 
-/* Top Header Alignment */
 h1 {
     text-align: center;
     font-size: 42px; 
     font-weight: bold;
 }
 
-/* Header Sizes */
 h2 {
     font-size: 32px; 
     font-weight: bold;
@@ -22,7 +19,6 @@ h3 {
     font-weight: bold;
 }
 
-/* 2nd Paragraph styling */
 #paragraph2 {
     width: 60%;            
     margin: 10px 10px 10px; 
@@ -32,43 +28,37 @@ h3 {
     background-color: white; 
 }
 
-/* 4th and 5th paragraphs Colors */
 .blue {
-    background-color: #00008B; /* DarkBlue */
+    background-color: #00008B;
     color: white;
     padding: 15px;
     margin-bottom: 15px;
 }
 
-/* List Items: Two digits */
 ol {
     list-style-type: decimal-leading-zero;
 }
 
-/* Link Colors */
 ol li a {
     color: DarkBlue; 
     text-decoration: underline;
     font-weight: bold;
 }
 
-/* W3Schools Link (inside a paragraph) */
 p a {
-    color: #8B0000; /* DarkRed */
+    color: #8B0000;
     font-weight: bold;
 }
 
-/* Table Styling */
 table {
     border-collapse: collapse;
-    width: 30%; /* Changed to 100% so it fills our new narrower body area */
+    width: 40%;
     margin-top: 10px;
     background-color: white; 
 }
 
-/* Table Header */
 th {
-    background-color: #C0C0C0; /* Silver */
+    background-color: #C0C0C0;
     color: black;              
     border: 1px solid black;
     padding: 10px;
