@@ -1,0 +1,75 @@
+article p:first-of-type::first-letter {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 36px;
+}
+
+a[href*="google.com"]::after {
+    content: " \2192";
+    display: inline-block;
+    margin-left: 5px;
+}
+
+article {
+    color: #777;
+    transition: all 2s ease;
+    padding: 10px;
+    border: 1px solid transparent;
+    transform-origin: center;
+}
+
+article:hover {
+    color: #000;
+    transform: scale(1.02);
+    background-color: #fafafa;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+nav#menuItems button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+nav#menuItems button:hover {
+    background-color: #d4d4d4;
+}
+
+nav#menuItems {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#jumpMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+#recentArticles:hover + #jumpMenu,
+#jumpMenu:hover {
+    display: block;
+}
+
+#jumpMenu li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s;
+}
+
+#jumpMenu li a:hover {
+    background-color: #007bff;
+    color: white;
+}
