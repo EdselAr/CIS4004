@@ -141,9 +141,6 @@ article h2 {
 article p:first-of-type::first-letter {
     font-family: "Times New Roman", Times, serif;
     font-size: 36px;
-    float: left;
-    line-height: 1;
-    margin-right: 5px;
 }
 
 a[href*="google.com"] {
