@@ -73,8 +73,8 @@ function addNewArticle() {
     newArticle.appendChild(pLink);
 
     const articleList = document.getElementById("articleList");
-    articleList.insertBefore(newArticle, articleList.firstChild);
-
+    articleList.appendChild(newArticle);
+    
     filterArticles();
 
     document.getElementById("inputHeader").value = "";
