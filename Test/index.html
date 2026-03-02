@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Falling Glowing Hearts</title>
+    <title>Falling Glowing Music Notes</title>
     <style>
         /* 1. Set up the dark canvas */
         body {
             margin: 0;
             padding: 0;
             background-color: #05000a; /* Deep dark purple/black */
-            overflow: hidden; /* Stops scrollbars from appearing when hearts fall */
+            overflow: hidden; /* Stops scrollbars from appearing */
             height: 100vh;
             width: 100vw;
         }
 
-        /* 2. Base styling for the heart */
-        .heart {
+        /* 2. Base styling for the music note */
+        .note {
             position: absolute;
             top: -10vh; /* Start just above the screen */
-            user-select: none; /* Prevents user from highlighting the hearts */
+            user-select: none; /* Prevents user from highlighting the notes */
             animation: fall linear forwards;
         }
 
         /* 3. The falling animation */
         @keyframes fall {
             0% {
-                transform: translateY(0) rotate(0deg);
+                transform: translateY(0) rotate(-15deg);
             }
             100% {
-                /* Fall to the bottom, adding a slight rotation for natural movement */
-                transform: translateY(115vh) rotate(360deg); 
+                /* Fall to the bottom, adding a slight rotation */
+                transform: translateY(115vh) rotate(15deg); 
             }
         }
     </style>
@@ -38,44 +38,46 @@
 <body>
 
     <script>
-        function createHeart() {
+        function createNote() {
             // Create a new div element
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = '&#10084;'; // HTML entity for a solid heart
+            const note = document.createElement('div');
+            note.classList.add('note');
 
-            // Define the color palette from your video (pinks, purples, white)
+            // Array of different HTML entities for music notes
+            const noteShapes = ['&#9833;', '&#9834;', '&#9835;', '&#9836;']; 
+            note.innerHTML = noteShapes[Math.floor(Math.random() * noteShapes.length)];
+
+            // Define the color palette (pinks, purples, white)
             const colors = ['#d8b4e2', '#a64d79', '#674ea7', '#ffffff', '#ff00ff', '#8a2be2'];
             
             // Randomize properties to create depth
             const leftPosition = Math.random() * 100; // Random horizontal start (0 to 100vw)
             const animationDuration = Math.random() * 5 + 4; // Fall duration between 4s and 9s
-            const size = Math.random() * 20 + 8; // Heart size between 8px and 28px
+            const size = Math.random() * 20 + 12; // Note size between 12px and 32px
             const color = colors[Math.floor(Math.random() * colors.length)]; // Pick a random color
             const opacity = Math.random() * 0.6 + 0.2; // Opacity between 0.2 and 0.8
 
             // Apply the randomized styles
-            heart.style.left = `${leftPosition}vw`;
-            heart.style.animationDuration = `${animationDuration}s`;
-            heart.style.fontSize = `${size}px`;
-            heart.style.color = color;
-            heart.style.opacity = opacity;
+            note.style.left = `${leftPosition}vw`;
+            note.style.animationDuration = `${animationDuration}s`;
+            note.style.fontSize = `${size}px`;
+            note.style.color = color;
+            note.style.opacity = opacity;
             
             // Apply the neon glow effect using text-shadow
-            heart.style.textShadow = `0 0 ${size / 2}px ${color}, 0 0 ${size}px ${color}`;
+            note.style.textShadow = `0 0 ${size / 2}px ${color}, 0 0 ${size}px ${color}`;
 
-            // Add the heart to the webpage
-            document.body.appendChild(heart);
+            // Add the note to the webpage
+            document.body.appendChild(note);
 
-            // Clean up: remove the heart from the DOM after it finishes falling 
-            // (prevents the browser from crashing over time)
+            // Clean up: remove the note from the DOM after it finishes falling 
             setTimeout(() => {
-                heart.remove();
+                note.remove();
             }, animationDuration * 1000);
         }
 
-        // Spawn a new heart every 150 milliseconds
-        setInterval(createHeart, 150);
+        // Spawn a new note every 150 milliseconds
+        setInterval(createNote, 150);
     </script>
 </body>
 </html>
