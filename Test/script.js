@@ -3,7 +3,8 @@ const title = document.getElementById('site-title');
 const mainContent = document.getElementById('main-content');
 
 let fillPercentage = 0;
-const totalNotesToFill = 20;
+// CHANGED: Now only requires 15 notes to hit 100%
+const totalNotesToFill = 15;
 const increment = 100 / totalNotesToFill; 
 let isRevealed = false; 
 
