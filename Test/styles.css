@@ -41,25 +41,37 @@ body {
     transform: translate(-50%, -50%);
     transition: top 1.5s ease-in-out, font-size 1.5s ease-in-out;
     
-    /* CHANGED: 'to top' makes it fill from the bottom up */
+    /* CHANGED: Brighter neon pink to match the glowing vibe */
     background: linear-gradient(
         to top, 
-        #a64d79 var(--fill-percent), 
+        #ff00ff var(--fill-percent), 
         transparent var(--fill-percent)
     );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent; 
     
-    /* CHANGED: Removed the outline stroke so it starts completely invisible */
-    filter: drop-shadow(0 0 0px transparent);
+    /* CHANGED: The text will now dynamically glow brighter as the percentage increases */
+    filter: drop-shadow(0 0 calc(var(--fill-percent) * 0.15px) #ff00ff);
 }
 
 /* Class added via JS to move the title to the top */
 #site-title.move-to-top {
     top: 5%;
     font-size: 3rem;
-    filter: drop-shadow(0 0 15px #a64d79); 
+    filter: drop-shadow(0 0 15px #ff00ff); /* Stronger glow when finished */
+}
+
+/* --- NEW: ABSORPTION ANIMATION --- */
+.note.hit {
+    /* Overrides the falling animation to play the absorb effect */
+    animation: absorb 0.4s ease-out forwards !important;
+}
+
+@keyframes absorb {
+    0% { opacity: 1; filter: brightness(1) blur(0px); }
+    40% { opacity: 1; filter: brightness(2) blur(2px) contrast(200%); }
+    100% { opacity: 0; filter: brightness(3) blur(6px); transform: scale(0); }
 }
 
 /* --- 4. MAIN CONTENT & SEARCH STYLES --- */
