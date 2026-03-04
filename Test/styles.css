@@ -1,82 +1,106 @@
-/* Reset and basic body styles */
+/* --- 1. BASE CANVAS STYLES --- */
 body {
     margin: 0;
-    overflow: hidden; /* Prevent scrolling during animation */
-    background-color: #121212;
-    color: white;
+    padding: 0;
+    background-color: #05000a; /* Deep dark purple/black */
+    overflow: hidden; /* Stops scrollbars from appearing initially */
+    height: 100vh;
+    width: 100vw;
     font-family: sans-serif;
+    color: white;
 }
 
-/* Splash Screen Setup */
+/* --- 2. MUSIC NOTE STYLES --- */
+.note {
+    position: absolute;
+    top: -10vh; /* Start just above the screen */
+    user-select: none; /* Prevents user from highlighting the notes */
+    animation: fall linear forwards;
+    z-index: 1;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(-15deg); }
+    100% { transform: translateY(115vh) rotate(15deg); }
+}
+
+/* --- 3. SPLASH SCREEN & TITLE STYLES --- */
 #splash-container {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-    transition: opacity 1s ease;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    display: flex; justify-content: center; align-items: center;
+    z-index: 10; 
+    pointer-events: none; /* Lets you click through to the content later */
 }
 
-/* The Title Text */
 #site-title {
     font-size: 5rem;
     margin: 0;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 1.5s ease-in-out; /* Smooth transition for moving to top */
+    transition: all 1.5s ease-in-out;
     
     /* The Fill Effect */
     background: linear-gradient(
         to bottom, 
-        #1DB954 var(--fill-percent), /* Filled color (e.g., Spotify Green) */
-        transparent var(--fill-percent) /* Invisible part */
+        #a64d79 var(--fill-percent), 
+        transparent var(--fill-percent)
     );
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent; /* Hides the actual text color to show the background */
-    
-    /* A subtle outline so you can slightly see the text before it fills */
+    color: transparent; 
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    filter: drop-shadow(0 0 0px transparent);
 }
 
-/* Class added via JS to move the title */
+/* Class added via JS to move the title to the top */
 #site-title.move-to-top {
     top: 5%;
     font-size: 3rem;
-    -webkit-text-stroke: 0px; /* Remove outline once filled */
+    -webkit-text-stroke: 0px; 
+    filter: drop-shadow(0 0 15px #a64d79); /* Neon glow */
 }
 
-/* Music Notes Styling */
-.music-note {
-    position: absolute;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 2rem;
-    animation: fall 2s linear forwards;
-}
-
-@keyframes fall {
-    0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
-    20% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-}
-
-/* Main Content Hidden State */
+/* --- 4. MAIN CONTENT & SEARCH STYLES --- */
 .hidden {
     opacity: 0;
     pointer-events: none;
     transition: opacity 1s ease;
 }
 
-/* Main Content Visible State */
 .visible {
     opacity: 1;
     pointer-events: auto;
-    padding-top: 100px; /* Leave room for the title at the top */
+    padding-top: 150px; /* Leaves room for the title */
+    text-align: center;
+    z-index: 5;
+    position: relative; 
+}
+
+#song-search {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 25px;
+    border: 2px solid #674ea7;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+#song-search::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#search-results {
+    max-width: 400px;
+    margin: 0 auto;
+    max-height: 50vh;
+    overflow-y: auto;
+    /* Custom scrollbar for dark theme */
+    scrollbar-width: thin;
+    scrollbar-color: #a64d79 transparent;
 }
