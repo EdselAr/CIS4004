@@ -57,8 +57,14 @@ function checkCollisions() {
             noteRect.right >= titleRect.left &&
             noteRect.left <= titleRect.right
         ) {
-            // Mark this note as "hit" so we don't count it again on the next frame
+            // Mark this note as "hit"
             note.classList.add('hit');
+
+            // NEW: Freeze the note in place so it stops falling
+            note.style.animationPlayState = 'paused';
+
+            // NEW: Delete the note completely after the absorb animation finishes (400ms)
+            setTimeout(() => note.remove(), 400);
 
             // Increase the fill percentage
             fillPercentage += increment;
