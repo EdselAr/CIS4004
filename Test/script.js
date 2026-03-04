@@ -1,58 +1,65 @@
+// --- UI & ANIMATION LOGIC ---
 const title = document.getElementById('site-title');
-const splashContainer = document.getElementById('splash-container');
-const notesContainer = document.getElementById('falling-notes-container');
 const mainContent = document.getElementById('main-content');
 
 let fillPercentage = 0;
-const totalNotes = 20;
-const increment = 100 / totalNotes; // 5% per note
-const noteSymbols = ['♪', '♫', '♩', '♬'];
+const totalNotesToFill = 20;
+const increment = 100 / totalNotesToFill; 
+let isRevealed = false; 
 
-function spawnNote() {
-    // 1. Create the note
+function createNote() {
     const note = document.createElement('div');
-    note.classList.add('music-note');
-    note.innerText = noteSymbols[Math.floor(Math.random() * noteSymbols.length)];
-    
-    // Randomize starting horizontal position
-    note.style.left = Math.random() * 90 + 5 + 'vw';
-    
-    notesContainer.appendChild(note);
+    note.classList.add('note');
 
-    // 2. Increase the fill percentage of the title
-    fillPercentage += increment;
-    title.style.setProperty('--fill-percent', `${fillPercentage}%`);
+    const noteShapes = ['&#9833;', '&#9834;', '&#9835;', '&#9836;']; 
+    note.innerHTML = noteShapes[Math.floor(Math.random() * noteShapes.length)];
 
-    // 3. Clean up the note from the DOM after it finishes falling (2 seconds)
+    const colors = ['#d8b4e2', '#a64d79', '#674ea7', '#ffffff', '#ff00ff', '#8a2be2'];
+    
+    const leftPosition = Math.random() * 100;
+    const animationDuration = Math.random() * 5 + 4; 
+    const size = Math.random() * 20 + 12; 
+    const color = colors[Math.floor(Math.random() * colors.length)]; 
+    const opacity = Math.random() * 0.6 + 0.2; 
+
+    note.style.left = `${leftPosition}vw`;
+    note.style.animationDuration = `${animationDuration}s`;
+    note.style.fontSize = `${size}px`;
+    note.style.color = color;
+    note.style.opacity = opacity;
+    note.style.textShadow = `0 0 ${size / 2}px ${color}, 0 0 ${size}px ${color}`;
+
+    document.body.appendChild(note);
+
     setTimeout(() => {
         note.remove();
-    }, 2000);
+    }, animationDuration * 1000);
 
-    // 4. Check if we are done
-    if (fillPercentage >= 100) {
-        clearInterval(noteInterval);
-        triggerSiteReveal();
+    // Title Fill Logic
+    if (!isRevealed) {
+        fillPercentage += increment;
+        if (fillPercentage > 100) fillPercentage = 100;
+        title.style.setProperty('--fill-percent', `${fillPercentage}%`);
+
+        if (fillPercentage >= 100) {
+            isRevealed = true;
+            triggerSiteReveal();
+        }
     }
 }
 
-// Start spawning notes every 150ms
-const noteInterval = setInterval(spawnNote, 150);
-
 function triggerSiteReveal() {
-    // Wait a brief moment after filling up before moving
     setTimeout(() => {
-        // Move title to top
         title.classList.add('move-to-top');
         
-        // Hide the falling notes container
-        notesContainer.style.opacity = '0';
-
-        // Wait for the title to finish moving (1.5s as set in CSS), then show the rest of the site
         setTimeout(() => {
-            document.body.style.overflow = 'auto'; // Re-enable scrolling
+            document.body.style.overflow = 'auto'; 
             mainContent.classList.remove('hidden');
             mainContent.classList.add('visible');
         }, 1500);
 
-    }, 800);
+    }, 500);
 }
+
+// Spawn a new note every 150 milliseconds
+setInterval(createNote, 150);
