@@ -62,6 +62,12 @@ body {
     filter: drop-shadow(0 0 15px #ff00ff); /* Stronger glow when finished */
 }
 
+/* Flips the music notes to look more like 'l's */
+.flip-note {
+    display: inline-block;
+    transform: scaleX(-1); /* This mirrors the character horizontally */
+}
+
 /* --- NEW: ABSORPTION ANIMATION --- */
 .note.hit {
     /* Overrides the falling animation to play the absorb effect */
