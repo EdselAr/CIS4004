@@ -47,7 +47,7 @@ body {
     /* FIX: Simplified gradient that all browsers can read */
     background: linear-gradient(
         to top, 
-        var(--fill-color, hsl(320, 100%, 20%)) var(--fill-percent), 
+        var(--fill-color, hsl(320, 100%, 10%)) var(--fill-percent), 
         transparent var(--fill-percent)
     );
     -webkit-background-clip: text;
