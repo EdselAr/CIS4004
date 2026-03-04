@@ -2,8 +2,8 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #05000a; /* Deep dark purple/black */
-    overflow: hidden; /* Stops scrollbars from appearing initially */
+    background-color: #05000a;
+    overflow: hidden; 
     height: 100vh;
     width: 100vw;
     font-family: sans-serif;
@@ -13,8 +13,8 @@ body {
 /* --- 2. MUSIC NOTE STYLES --- */
 .note {
     position: absolute;
-    top: -10vh; /* Start just above the screen */
-    user-select: none; /* Prevents user from highlighting the notes */
+    top: -10vh; 
+    user-select: none; 
     animation: fall linear forwards;
     z-index: 1;
 }
@@ -30,7 +30,7 @@ body {
     top: 0; left: 0; width: 100vw; height: 100vh;
     display: flex; justify-content: center; align-items: center;
     z-index: 10; 
-    pointer-events: none; /* Lets you click through to the content later */
+    pointer-events: none; 
 }
 
 #site-title {
@@ -39,18 +39,19 @@ body {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 1.5s ease-in-out;
+    transition: top 1.5s ease-in-out, font-size 1.5s ease-in-out;
     
-    /* The Fill Effect */
+    /* CHANGED: 'to top' makes it fill from the bottom up */
     background: linear-gradient(
-        to bottom, 
+        to top, 
         #a64d79 var(--fill-percent), 
         transparent var(--fill-percent)
     );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent; 
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    
+    /* CHANGED: Removed the outline stroke so it starts completely invisible */
     filter: drop-shadow(0 0 0px transparent);
 }
 
@@ -58,8 +59,7 @@ body {
 #site-title.move-to-top {
     top: 5%;
     font-size: 3rem;
-    -webkit-text-stroke: 0px; 
-    filter: drop-shadow(0 0 15px #a64d79); /* Neon glow */
+    filter: drop-shadow(0 0 15px #a64d79); 
 }
 
 /* --- 4. MAIN CONTENT & SEARCH STYLES --- */
@@ -72,7 +72,7 @@ body {
 .visible {
     opacity: 1;
     pointer-events: auto;
-    padding-top: 150px; /* Leaves room for the title */
+    padding-top: 150px; 
     text-align: center;
     z-index: 5;
     position: relative; 
@@ -100,7 +100,6 @@ body {
     margin: 0 auto;
     max-height: 50vh;
     overflow-y: auto;
-    /* Custom scrollbar for dark theme */
     scrollbar-width: thin;
     scrollbar-color: #a64d79 transparent;
 }
