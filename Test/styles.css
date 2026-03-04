@@ -39,27 +39,32 @@ body {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    transition: top 1.5s ease-in-out, font-size 1.5s ease-in-out;
+    /* CHANGED: Added 'filter' to the transition so the glow fades in smoothly */
+    transition: top 1.5s ease-in-out, font-size 1.5s ease-in-out, filter 0.5s ease-in-out;
     
-    /* CHANGED: Brighter neon pink to match the glowing vibe */
+    /* CHANGED: The unfilled part is now a dark, dim color instead of transparent */
     background: linear-gradient(
         to top, 
         #ff00ff var(--fill-percent), 
-        transparent var(--fill-percent)
+        rgba(255, 255, 255, 0.15) var(--fill-percent)
     );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent; 
     
-    /* CHANGED: The text will now dynamically glow brighter as the percentage increases */
-    filter: drop-shadow(0 0 calc(var(--fill-percent) * 0.15px) #ff00ff);
+    /* Starts with no glow */
+    filter: drop-shadow(0 0 0px transparent);
 }
 
-/* Class added via JS to move the title to the top */
+/* --- NEW: Step 1 of the reveal (Lights up!) --- */
+#site-title.glow-active {
+    filter: drop-shadow(0 0 20px #ff00ff); 
+}
+
+/* Step 2 of the reveal: Moves to the top (keeps the glow) */
 #site-title.move-to-top {
     top: 5%;
     font-size: 3rem;
-    filter: drop-shadow(0 0 15px #ff00ff); /* Stronger glow when finished */
 }
 
 /* Flips the music notes to look more like 'l's */
