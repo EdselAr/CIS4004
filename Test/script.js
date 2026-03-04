@@ -88,16 +88,21 @@ function checkCollisions() {
 requestAnimationFrame(checkCollisions);
 
 function triggerSiteReveal() {
+    // 1. Make it glow immediately as soon as it hits 100%
+    title.classList.add('glow-active');
+    
+    // 2. Wait 1 full second so the user can enjoy the glowing effect, THEN move it
     setTimeout(() => {
         title.classList.add('move-to-top');
         
+        // 3. Wait for the CSS move animation (1.5s) to finish, then show the search bar
         setTimeout(() => {
             document.body.style.overflow = 'auto'; 
             mainContent.classList.remove('hidden');
             mainContent.classList.add('visible');
         }, 1500);
 
-    }, 500);
+    }, 1000); // <-- This is the 1 second pause before it moves
 }
 
 // Spawn a new note every 150 milliseconds
