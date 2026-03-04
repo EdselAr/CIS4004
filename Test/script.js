@@ -60,8 +60,8 @@ function checkCollisions() {
             fillPercentage += increment;
             if (fillPercentage > 100) fillPercentage = 100;
             
-            // FIX: Dynamically calculate the color from dark (20%) to neon light (50%)
-            const currentLightness = 20 + (fillPercentage * 0.3);
+            // Starts at 10% (very dark) and scales up by 40 to hit exactly 50% (bright neon) at the end
+            const currentLightness = 10 + (fillPercentage * 0.4);
             
             title.style.setProperty('--fill-percent', `${fillPercentage}%`);
             title.style.setProperty('--fill-color', `hsl(320, 100%, ${currentLightness}%)`);
