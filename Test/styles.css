@@ -41,35 +41,36 @@ body {
     transform: translate(-50%, -50%);
     transition: top 1.5s ease-in-out, font-size 1.5s ease-in-out, filter 0.5s ease-in-out;
     
-    /* 1. Starts 'transparent' so it's completely invisible.
-       2. The hsl() math makes lightness start at 20% (dark purple) and scale up to 50% (bright neon pink) */
+    /* FIX: Forces the text to NEVER break onto a second line */
+    white-space: nowrap; 
+    
+    /* FIX: Simplified gradient that all browsers can read */
     background: linear-gradient(
         to top, 
-        hsl(300, 100%, calc(20% + (var(--fill-percent) * 0.3%))) var(--fill-percent), 
+        var(--fill-color, hsl(320, 100%, 20%)) var(--fill-percent), 
         transparent var(--fill-percent)
     );
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Guarantees invisibility */
     background-clip: text;
     color: transparent; 
     
-    /* Starts with no glow */
     filter: drop-shadow(0 0 0px transparent);
 }
 
-/* --- NEW: Step 1 of the reveal (Lights up!) --- */
+/* Step 1 of the reveal (Lights up!) */
 #site-title.glow-active {
     filter: drop-shadow(0 0 20px #ff00ff); 
 }
 
-/* Step 2 of the reveal: Moves to the top (keeps the glow) */
+/* Step 2 of the reveal: Moves to the top */
 #site-title.move-to-top {
     top: 5%;
     font-size: 3rem;
 }
 
-/* --- NEW: ABSORPTION ANIMATION --- */
+/* --- ABSORPTION ANIMATION --- */
 .note.hit {
-    /* Overrides the falling animation to play the absorb effect */
     animation: absorb 0.4s ease-out forwards !important;
 }
 
