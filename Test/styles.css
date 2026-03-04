@@ -39,14 +39,14 @@ body {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    /* CHANGED: Added 'filter' to the transition so the glow fades in smoothly */
     transition: top 1.5s ease-in-out, font-size 1.5s ease-in-out, filter 0.5s ease-in-out;
     
-    /* CHANGED: The unfilled part is now a dark, dim color instead of transparent */
+    /* 1. Starts 'transparent' so it's completely invisible.
+       2. The hsl() math makes lightness start at 20% (dark purple) and scale up to 50% (bright neon pink) */
     background: linear-gradient(
         to top, 
-        #ff00ff var(--fill-percent), 
-        rgba(255, 255, 255, 0.15) var(--fill-percent)
+        hsl(300, 100%, calc(20% + (var(--fill-percent) * 0.3%))) var(--fill-percent), 
+        transparent var(--fill-percent)
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -65,12 +65,6 @@ body {
 #site-title.move-to-top {
     top: 5%;
     font-size: 3rem;
-}
-
-/* Flips the music notes to look more like 'l's */
-.flip-note {
-    display: inline-block;
-    transform: scaleX(-1); /* This mirrors the character horizontally */
 }
 
 /* --- NEW: ABSORPTION ANIMATION --- */
