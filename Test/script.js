@@ -3,7 +3,6 @@ const title = document.getElementById('site-title');
 const mainContent = document.getElementById('main-content');
 
 let fillPercentage = 0;
-// CHANGED: Now only requires 15 notes to hit 100%
 const totalNotesToFill = 15;
 const increment = 100 / totalNotesToFill; 
 let isRevealed = false; 
@@ -37,42 +36,36 @@ function createNote() {
     }, animationDuration * 1000);
 }
 
-// --- NEW: COLLISION DETECTION LOGIC ---
+// --- COLLISION DETECTION LOGIC ---
 function checkCollisions() {
-    if (isRevealed) return; // Stop checking once it's fully revealed
+    if (isRevealed) return; 
 
-    // Get the exact position of the invisible title on the screen
     const titleRect = title.getBoundingClientRect();
-    
-    // Grab all notes that haven't triggered a collision yet
     const notes = document.querySelectorAll('.note:not(.hit)');
 
     notes.forEach(note => {
-        // Get the exact position of this specific falling note
         const noteRect = note.getBoundingClientRect();
 
-        // Check if the note's box overlaps with the title's box
         if (
             noteRect.bottom >= titleRect.top &&
             noteRect.top <= titleRect.bottom &&
             noteRect.right >= titleRect.left &&
             noteRect.left <= titleRect.right
         ) {
-            // Mark this note as "hit"
             note.classList.add('hit');
-
-            // NEW: Freeze the note in place so it stops falling
             note.style.animationPlayState = 'paused';
-
-            // NEW: Delete the note completely after the absorb animation finishes (400ms)
             setTimeout(() => note.remove(), 400);
 
             // Increase the fill percentage
             fillPercentage += increment;
             if (fillPercentage > 100) fillPercentage = 100;
+            
+            // FIX: Dynamically calculate the color from dark (20%) to neon light (50%)
+            const currentLightness = 20 + (fillPercentage * 0.3);
+            
             title.style.setProperty('--fill-percent', `${fillPercentage}%`);
+            title.style.setProperty('--fill-color', `hsl(320, 100%, ${currentLightness}%)`);
 
-            // If it's full, trigger the reveal!
             if (fillPercentage >= 100) {
                 isRevealed = true;
                 triggerSiteReveal();
@@ -80,30 +73,24 @@ function checkCollisions() {
         }
     });
 
-    // Run this check again on the next animation frame
     requestAnimationFrame(checkCollisions);
 }
 
-// Start the continuous collision loop
 requestAnimationFrame(checkCollisions);
 
 function triggerSiteReveal() {
-    // 1. Make it glow immediately as soon as it hits 100%
     title.classList.add('glow-active');
     
-    // 2. Wait 1 full second so the user can enjoy the glowing effect, THEN move it
     setTimeout(() => {
         title.classList.add('move-to-top');
         
-        // 3. Wait for the CSS move animation (1.5s) to finish, then show the search bar
         setTimeout(() => {
             document.body.style.overflow = 'auto'; 
             mainContent.classList.remove('hidden');
             mainContent.classList.add('visible');
         }, 1500);
 
-    }, 1000); // <-- This is the 1 second pause before it moves
+    }, 1000); 
 }
 
-// Spawn a new note every 150 milliseconds
 setInterval(createNote, 150);
