@@ -34,19 +34,51 @@ function createNote() {
     setTimeout(() => {
         note.remove();
     }, animationDuration * 1000);
-
-    // Title Fill Logic
-    if (!isRevealed) {
-        fillPercentage += increment;
-        if (fillPercentage > 100) fillPercentage = 100;
-        title.style.setProperty('--fill-percent', `${fillPercentage}%`);
-
-        if (fillPercentage >= 100) {
-            isRevealed = true;
-            triggerSiteReveal();
-        }
-    }
 }
+
+// --- NEW: COLLISION DETECTION LOGIC ---
+function checkCollisions() {
+    if (isRevealed) return; // Stop checking once it's fully revealed
+
+    // Get the exact position of the invisible title on the screen
+    const titleRect = title.getBoundingClientRect();
+    
+    // Grab all notes that haven't triggered a collision yet
+    const notes = document.querySelectorAll('.note:not(.hit)');
+
+    notes.forEach(note => {
+        // Get the exact position of this specific falling note
+        const noteRect = note.getBoundingClientRect();
+
+        // Check if the note's box overlaps with the title's box
+        if (
+            noteRect.bottom >= titleRect.top &&
+            noteRect.top <= titleRect.bottom &&
+            noteRect.right >= titleRect.left &&
+            noteRect.left <= titleRect.right
+        ) {
+            // Mark this note as "hit" so we don't count it again on the next frame
+            note.classList.add('hit');
+
+            // Increase the fill percentage
+            fillPercentage += increment;
+            if (fillPercentage > 100) fillPercentage = 100;
+            title.style.setProperty('--fill-percent', `${fillPercentage}%`);
+
+            // If it's full, trigger the reveal!
+            if (fillPercentage >= 100) {
+                isRevealed = true;
+                triggerSiteReveal();
+            }
+        }
+    });
+
+    // Run this check again on the next animation frame
+    requestAnimationFrame(checkCollisions);
+}
+
+// Start the continuous collision loop
+requestAnimationFrame(checkCollisions);
 
 function triggerSiteReveal() {
     setTimeout(() => {
