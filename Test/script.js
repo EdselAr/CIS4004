@@ -64,7 +64,7 @@ function checkCollisions() {
             const currentLightness = 10 + (fillPercentage * 0.4);
             
             title.style.setProperty('--fill-percent', `${fillPercentage}%`);
-            title.style.setProperty('--fill-color', `hsl(320, 100%, ${currentLightness}%)`);
+            title.style.setProperty('--fill-color', `hsl(280, 100%, ${currentLightness}%)`);
 
             if (fillPercentage >= 100) {
                 isRevealed = true;
