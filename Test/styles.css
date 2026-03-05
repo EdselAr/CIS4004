@@ -44,10 +44,10 @@ body {
     /* FIX: Forces the text to NEVER break onto a second line */
     white-space: nowrap; 
     
-    /* FIX: Simplified gradient that all browsers can read */
+    /* Change the 320 to 280 here */
     background: linear-gradient(
         to top, 
-        var(--fill-color, hsl(320, 100%, 10%)) var(--fill-percent), 
+        var(--fill-color, hsl(280, 100%, 10%)) var(--fill-percent), 
         transparent var(--fill-percent)
     );
     -webkit-background-clip: text;
@@ -60,13 +60,14 @@ body {
 
 /* Step 1 of the reveal (Lights up!) */
 #site-title.glow-active {
-    filter: drop-shadow(0 0 20px #ff00ff); 
+    filter: drop-shadow(0 0 20px hsl(280, 100%, 50%)); 
 }
 
-/* Step 2 of the reveal: Moves to the top */
+/* Step 2 of the reveal: Moves to the top (keeps the glow) */
 #site-title.move-to-top {
     top: 5%;
     font-size: 3rem;
+    filter: drop-shadow(0 0 15px hsl(280, 100%, 50%));
 }
 
 /* --- ABSORPTION ANIMATION --- */
