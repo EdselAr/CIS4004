@@ -60,14 +60,14 @@ body {
 
 /* Step 1 of the reveal (Lights up!) */
 #site-title.glow-active {
-    filter: drop-shadow(0 0 20px hsl(280, 100%, 50%)); 
+    filter: drop-shadow(0 0 20px hsl(265, 100%, 60%)); 
 }
 
 /* Step 2 of the reveal: Moves to the top (keeps the glow) */
 #site-title.move-to-top {
     top: 5%;
     font-size: 3rem;
-    filter: drop-shadow(0 0 15px hsl(280, 100%, 50%));
+    filter: drop-shadow(0 0 15px hsl(265, 100%, 60%));
 }
 
 /* --- ABSORPTION ANIMATION --- */
