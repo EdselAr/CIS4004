@@ -94,3 +94,13 @@ function triggerSiteReveal() {
 }
 
 setInterval(createNote, 150);
+
+// --- FORM HANDLING LOGIC ---
+// Prevent the form from refreshing the page when clicking "Log In"
+const loginForm = document.getElementById('login-form');
+if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // Stops the page reload
+        console.log("Login button clicked! Ready to connect to backend.");
+    });
+}
