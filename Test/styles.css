@@ -41,10 +41,10 @@ body {
     transform: translate(-50%, -50%);
     transition: top 1.5s ease-in-out, font-size 1.5s ease-in-out, filter 0.5s ease-in-out;
     
-    /* FIX: Forces the text to NEVER break onto a second line */
+    /* Forces the text to NEVER break onto a second line */
     white-space: nowrap; 
     
-    /* Change the 320 to 280 here */
+    /* Invisible text filled by dynamic purple color */
     background: linear-gradient(
         to top, 
         var(--fill-color, hsl(280, 100%, 10%)) var(--fill-percent), 
@@ -81,7 +81,7 @@ body {
     100% { opacity: 0; filter: brightness(3) blur(6px); transform: scale(0); }
 }
 
-/* --- 4. MAIN CONTENT & SEARCH STYLES --- */
+/* --- 4. MAIN CONTENT & LOGIN STYLES --- */
 .hidden {
     opacity: 0;
     pointer-events: none;
@@ -97,28 +97,59 @@ body {
     position: relative; 
 }
 
-#song-search {
+/* Flexbox to perfectly center the inputs */
+#login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Styling the input boxes */
+#login-form input {
     padding: 12px 20px;
     font-size: 1.2rem;
     width: 80%;
-    max-width: 400px;
+    max-width: 300px;
     border-radius: 25px;
-    border: 2px solid #674ea7;
-    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid hsl(280, 100%, 30%);
+    background-color: rgba(255, 255, 255, 0.05);
     color: white;
     outline: none;
-    margin-bottom: 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#song-search::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+#login-form input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
 }
 
-#search-results {
-    max-width: 400px;
-    margin: 0 auto;
-    max-height: 50vh;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #a64d79 transparent;
+/* Adds a neon purple glow when you click inside an input */
+#login-form input:focus {
+    border-color: hsl(280, 100%, 60%);
+    box-shadow: 0 0 10px hsl(280, 100%, 50%);
+}
+
+/* Styling the Login Button */
+#login-btn {
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    border: none;
+    background-color: hsl(280, 100%, 40%);
+    color: white;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+    width: 80%;
+    max-width: 345px;
+}
+
+/* Button hover effect */
+#login-btn:hover {
+    background-color: hsl(280, 100%, 50%);
+    box-shadow: 0 0 15px hsl(280, 100%, 50%);
+    transform: translateY(-2px);
 }
